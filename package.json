@@ -1,11 +1,12 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "obsidian-m0rtyn-plugin",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "A custom logic by m0rtyn",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"move": "cp ./main.js ./manifest.json /Users/m0rtyn/Repos/motion/.obsidian/plugins/auto-folding/",
 		"version": "node version-bump.mjs && git add manifest.json versions.json"
 	},
 	"keywords": [],
