@@ -64,8 +64,9 @@ export default class M0rtynPlugin extends Plugin {
   }
 
   lintLine(line: string): string {
+    const indentPattern = '^(( {2})*)';
     /** ignore code blocks by setting a flag */
-    if (line.match(/^```(\w+)?/)) {
+    if (line.match(`${indentPattern}\\\`\\\`\\\`(\\w+)?`)) {
       this.isCodeBlock = !this.isCodeBlock;
       return line;
     }
@@ -87,7 +88,6 @@ export default class M0rtynPlugin extends Plugin {
     }
 
     
-    const indentPattern = '^(( {2})*)';
     if (
       (this.isCodeBlock || this.isFrontMatter)
       || line === "" // ignore empty lines
